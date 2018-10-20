@@ -1,18 +1,32 @@
 <template>
   <div id="app">
     <navbar-star-wars></navbar-star-wars>
-    <float-button></float-button>
+    <float-button @character-added="showCharacters"></float-button>
+    <div class="container">
+      <list-characters v-bind:characters="characters"></list-characters>
+    </div>
   </div>
 </template>
 
 <script>
 import NavbarStarWars from "./components/NavbarStarWars";
 import FloatButton from "./components/FloatButton";
+import ListCharacters from "./components/ListCharacters";
 
 export default {
   name: "App",
   components: {
-    NavbarStarWars, FloatButton
+    NavbarStarWars, FloatButton, ListCharacters
+  },
+  data() {
+    return {
+      characters: []
+    }
+  },
+  methods: {
+    showCharacters(payload) {
+      this.characters = payload;
+    }
   }
 };
 </script>

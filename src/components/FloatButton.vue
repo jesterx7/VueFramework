@@ -21,6 +21,7 @@ export default {
         // handle success
         this.characters.push(response.data);
         console.log(this.characters);
+        this.$emit('character-added', this.characters);
       })
       .catch((error) => {
         // handle error
