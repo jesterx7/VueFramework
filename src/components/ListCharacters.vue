@@ -1,23 +1,39 @@
 <template>
   <ul class="collection">
     <li class="collection-item avatar" v-for="(characters, index) in characters" :key="index">
-      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTI5TDjHkXbNGlduL7AEVMwGn4bc-QosNt7IRcp9fBJ4qN6N0pmHg" alt="" class="circle">
+      <img v-if="getGender(index) === 'male'" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTI5TDjHkXbNGlduL7AEVMwGn4bc-QosNt7IRcp9fBJ4qN6N0pmHg" alt="" class="circle">
+      <img v-else-if="getGender(index) === 'female'"  alt="" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSNngF0RFPjyGl4ybo78-XYxxeap88Nvsyj1_txm6L4eheH8ZBu" class="circle">
+      <img v-else src="https://marketplace.canva.com/MAB6v3AfpmA/1/thumbnail/canva-robot-MAB6v3AfpmA.png" class="circle">
       <span class="title">{{characters.name}}</span>
       <br>
-      <span>{{characters.height}}</span>
+      <span>World {{world[index].name}}</span>
+      <br>
+      <a>View Details</a>
     </li>
   </ul>
 </template>
 
 <script>
 export default {
+  data() {
+    return {
+    }
+  },
   props: {
-    characters: Array
+    characters: Array,
+    world: Array
+  },
+  methods: {
+    getGender(index) {
+      return this.characters[index].gender;
+    }
   }
 };
 </script>
 
 <style>
+@import url(https://fonts.googleapis.com/css?family=Chakra+Petch|Roboto|Roboto+Condensed|Roboto+Slab);
+
 .collection {
   border: none;
 }
