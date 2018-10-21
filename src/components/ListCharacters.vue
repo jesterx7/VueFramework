@@ -8,7 +8,7 @@
       <br>
       <span>World {{world[index].name}}</span>
       <br>
-      <a>View Details</a>
+      <button class="btnDetail" @click="getDetails(characters)">View Details</button>
     </li>
   </ul>
 </template>
@@ -26,6 +26,9 @@ export default {
   methods: {
     getGender(index) {
       return this.characters[index].gender;
+    },
+    getDetails(character) {
+      this.$emit("character", character);
     }
   }
 };
@@ -36,5 +39,17 @@ export default {
 
 .collection {
   border: none;
+}
+
+.title {
+  font-weight: bold;
+  font-family: 'Roboto Slab', sans-serif;
+}
+
+.btnDetail {
+  background: #5788d6;
+  color: white;
+  border-radius: 5px;
+  border: 0px;
 }
 </style>
