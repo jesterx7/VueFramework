@@ -8,7 +8,7 @@
       <br>
       <span>World {{world[index].name}}</span>
       <br>
-      <button class="btnDetail" @click="getDetails(characters)">View Details</button>
+      <button class="btnDetail" @click="getDetails(characters, index)">View Details</button>
     </li>
   </ul>
 </template>
@@ -27,8 +27,9 @@ export default {
     getGender(index) {
       return this.characters[index].gender;
     },
-    getDetails(character) {
+    getDetails(character, index) {
       this.$emit("character", character);
+      this.$emit("worlds", this.world[index]);
     }
   }
 };

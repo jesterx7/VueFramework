@@ -4,8 +4,8 @@
     <logo v-show="detail"></logo>
     <float-button @character-added="showCharacters" @world-added="showWorld"></float-button>
     <div class="container">
-      <list-characters v-bind:characters="characters" v-bind:world="world" @character="showCharacterDetails" v-show="detail"></list-characters>
-      <detail-characters :characterDetails="characterDetails" v-show="!detail"></detail-characters>
+      <list-characters v-bind:world="world" v-bind:characters="characters" @character="showCharacterDetails" @worlds="showDetailWorld" v-show="detail"></list-characters>
+      <detail-characters :characterDetails="characterDetails" :characterDetailsWorld="characterDetailsWorld" @back="showBack" v-show="!detail"></detail-characters>
     </div>
   </div>
 </template>
@@ -27,6 +27,7 @@ export default {
       characters: [],
       world: [],
       characterDetails: [],
+      characterDetailsWorld: [],
       detail: true
     }
   },
@@ -40,6 +41,12 @@ export default {
     showCharacterDetails(payload) {
       this.detail = false;
       this.characterDetails = payload;
+    },
+    showDetailWorld(payload) {
+      this.characterDetailsWorld = payload;
+    },
+    showBack(payload) {
+      this.detail = payload;
     }
   }
 };
