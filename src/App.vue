@@ -4,8 +4,8 @@
     <logo v-show="detail"></logo>
     <float-button @character-added="showCharacters" @world-added="showWorld"></float-button>
     <div class="container">
-      <list-characters v-bind:world="world" v-bind:characters="characters" @character="showCharacterDetails" @worlds="showDetailWorld" v-show="detail"></list-characters>
-      <detail-characters :characterDetails="characterDetails" :characterDetailsWorld="characterDetailsWorld" @back="showBack" v-show="!detail"></detail-characters>
+      <list-characters v-if="detail === true" v-bind:world="world" v-bind:characters="characters" @character="showCharacterDetails" @worlds="showDetailWorld"></list-characters>
+      <detail-characters v-else :characterDetails="characterDetails" :characterDetailsWorld="characterDetailsWorld" @back="showBack"></detail-characters>
     </div>
   </div>
 </template>

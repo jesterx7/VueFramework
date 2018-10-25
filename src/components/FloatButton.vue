@@ -27,6 +27,8 @@ export default {
       .then((response) =>{
         // handle success
         this.characters.push(response.data);
+        console.log(this.characters);
+        this.$emit('character-added', this.characters);
         axios.get(response.data.homeworld)
           .then(res => {
             // handle success
@@ -41,8 +43,6 @@ export default {
           .then(() => {
             // always executed
           });
-        console.log(this.characters);
-        this.$emit('character-added', this.characters);
       })
       .catch((error) => {
         // handle error
