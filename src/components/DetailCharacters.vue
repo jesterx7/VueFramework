@@ -55,8 +55,8 @@ export default {
     }
   },
   props: {
-    characterDetails: Array,
-    characterDetailsWorld : Array
+    characterDetails: Object,
+    characterDetailsWorld : Object
   },
   methods: {
     getBack() {

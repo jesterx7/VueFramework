@@ -26,8 +26,8 @@ export default {
     return {
       characters: [],
       world: [],
-      characterDetails: [],
-      characterDetailsWorld: [],
+      characterDetails: Object,
+      characterDetailsWorld: Object,
       detail: true
     }
   },
