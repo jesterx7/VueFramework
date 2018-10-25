@@ -96,5 +96,6 @@ table {
   width: 80px;
   height: 30px;
   font-family: 'Roboto Condensed', sans-serif;
+  margin-bottom: 15px;
 }
 </style>

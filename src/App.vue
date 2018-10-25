@@ -2,10 +2,12 @@
   <div id="app">
     <navbar-star-wars></navbar-star-wars>
     <logo v-show="detail"></logo>
-    <float-button @character-added="showCharacters" @world-added="showWorld"></float-button>
+    <float-button  @all-added="showAll"></float-button>
     <div class="container">
-      <list-characters v-if="detail === true" v-bind:world="world" v-bind:characters="characters" @character="showCharacterDetails" @worlds="showDetailWorld"></list-characters>
-      <detail-characters v-else :characterDetails="characterDetails" :characterDetailsWorld="characterDetailsWorld" @back="showBack"></detail-characters>
+      <transition name="fade">
+        <list-characters v-if="detail === true" v-bind="{characters, world}" @charDetails="showCharDetails"></list-characters>
+        <detail-characters v-else v-bind="{characterDetails, characterDetailsWorld}"  @back="showBack"></detail-characters>
+      </transition>
     </div>
   </div>
 </template>
@@ -26,24 +28,22 @@ export default {
     return {
       characters: [],
       world: [],
+      charAndWorld: {},
       characterDetails: Object,
       characterDetailsWorld: Object,
       detail: true
     }
   },
   methods: {
-    showCharacters(payload) {
-      this.characters = payload;
+    showAll(payload1, payload2) {
+      this.world = payload1;
+      this.characters = payload2;
+      this.charAndWorld = {characters: this.characters, world: this.world};
     },
-    showWorld(payload) {
-      this.world = payload;
-    },
-    showCharacterDetails(payload) {
+    showCharDetails(payload1, payload2) {
       this.detail = false;
-      this.characterDetails = payload;
-    },
-    showDetailWorld(payload) {
-      this.characterDetailsWorld = payload;
+      this.characterDetails = payload1;
+      this.characterDetailsWorld = payload2;
     },
     showBack(payload) {
       this.detail = payload;
@@ -58,5 +58,11 @@ export default {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   position: relative;
+}
+.fade-enter-active, .fade-leave-active {
+  transition: opacity .5s;
+}
+.fade-enter, .fade-leave-to {
+  opacity: 0;
 }
 </style>

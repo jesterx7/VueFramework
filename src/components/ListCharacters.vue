@@ -20,16 +20,15 @@ export default {
     }
   },
   props: {
-    characters: Array,
-    world: Array
+    characters : Array,
+    world : Array
   },
   methods: {
     getGender(index) {
       return this.characters[index].gender;
     },
     getDetails(character, index) {
-      this.$emit("character", character);
-      this.$emit("worlds", this.world[index]);
+      this.$emit("charDetails", character, this.world[index]);
     }
   }
 };

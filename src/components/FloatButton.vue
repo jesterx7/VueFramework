@@ -5,7 +5,7 @@
         <p class="One">Click !</p>
       </div>
     </transition>
-    <a class="btn-floating btn-large blue" v-on:click="getCharacters" @click="show = false">
+    <a class="btn-floating btn-large black" v-on:click="getCharacters" @click="show = false">
       <i class="large material-icons">add</i>
     </a>
 </div>
@@ -29,13 +29,12 @@ export default {
         // handle success
         this.characters.push(response.data);
         console.log(this.characters);
-        this.$emit('character-added', this.characters);
         axios.get(response.data.homeworld)
           .then(res => {
             // handle success
             this.world.push(res.data);
             console.log(this.world);
-            this.$emit('world-added', this.world);
+            this.$emit('all-added', this.world, this.characters);
           })
           .catch(error => {
             // handle error
@@ -53,10 +52,6 @@ export default {
         // always executed
       });
     },
-    getBack() {
-      this.back = true;
-      this.$emit("back", this.back);
-    }
   }
 };
 </script>
