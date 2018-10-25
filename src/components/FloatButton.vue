@@ -5,7 +5,7 @@
         <p class="One">Click !</p>
       </div>
     </transition>
-    <a class="btn-floating btn-large red" v-on:click="getCharacters" @click="show = false">
+    <a class="btn-floating btn-large blue" v-on:click="getCharacters" @click="show = false">
       <i class="large material-icons">add</i>
     </a>
 </div>
@@ -18,7 +18,8 @@ export default {
       characters: [],
       index: 0,
       world: [],
-      show: true
+      show: true,
+      back: false
     }
   },
   methods: {
@@ -52,6 +53,10 @@ export default {
         // always executed
       });
     },
+    getBack() {
+      this.back = true;
+      this.$emit("back", this.back);
+    }
   }
 };
 </script>

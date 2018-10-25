@@ -16,4 +16,7 @@ export default {};
 </script>
 
 <style>
+  .nav-wrapper {
+    background: black;
+  }
 </style>

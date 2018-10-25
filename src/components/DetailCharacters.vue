@@ -43,7 +43,7 @@
         <td>{{characterDetailsWorld.name}}</td> 
       </tr>
     </table>
-    <button @click="getBack">Back</button>
+    <button class="backButton" @click="getBack">Back</button>
   </div>
 </template>
 
@@ -71,6 +71,13 @@ export default {
 </script>
 
 <style>
+@import url(https://fonts.googleapis.com/css?family=Chakra+Petch|Roboto|Roboto+Condensed|Roboto+Slab);
+
+table {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
 .contain {
   text-align: center;
 }
@@ -79,5 +86,15 @@ export default {
   margin-top: 30px;
   height: 100px;
   text-align: center;
+}
+
+.backButton {
+  background: blue;
+  border-radius: 10px;
+  border: 0px;
+  color: white;
+  width: 80px;
+  height: 30px;
+  font-family: 'Roboto Condensed', sans-serif;
 }
 </style>

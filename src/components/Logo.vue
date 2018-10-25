@@ -20,6 +20,6 @@ export default {};
   margin-top: 0px;
   font-family: "Chakra Petch", sans-serif;
   font-weight: bold;
-  font-size: 30px;
+  font-size: 30px
 }
 </style>
