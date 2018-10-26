@@ -28,7 +28,6 @@ export default {
     return {
       characters: [],
       world: [],
-      charAndWorld: {},
       characterDetails: Object,
       characterDetailsWorld: Object,
       detail: true
@@ -38,7 +37,6 @@ export default {
     showAll(payload1, payload2) {
       this.world = payload1;
       this.characters = payload2;
-      this.charAndWorld = {characters: this.characters, world: this.world};
     },
     showCharDetails(payload1, payload2) {
       this.detail = false;
