@@ -83,7 +83,7 @@ table {
 }
 
 .profile {
-  margin-top: 30px;
+  margin-top: 10px;
   height: 100px;
   text-align: center;
 }

@@ -21,14 +21,14 @@ export default {};
   }
   .logoImage {
     margin-top: 10px;
-    width: 40px;
-    height: 40px;
+    width: 30px;
+    height: 30px;
     margin-right: 20px;
   }
   .left {
     font-weight: bold;
     margin-left: 20px;
-    font-size: 30px;
+    font-size: 20px;
     font-family: 'Chakra Petch', sans-serif;
   }
 </style>

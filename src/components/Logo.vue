@@ -12,7 +12,7 @@ export default {};
 <style>
 @import url(https://fonts.googleapis.com/css?family=Chakra+Petch|Roboto|Roboto+Condensed|Roboto+Slab);
 .logo {
-  margin-top: 20px;
+  margin-top: 10px;
   text-align: center;
 }
 

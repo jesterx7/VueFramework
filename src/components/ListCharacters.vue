@@ -1,6 +1,10 @@
 <template>
+<div class="container">
+  <div class="search-wrapper">
+      <input type="text" v-model="search" placeholder="Search Cast.."/>
+  </div>
   <ul class="collection">
-    <li class="collection-item avatar" v-for="(characters, index) in characters" :key="index">
+    <li class="collection-item avatar" v-for="(characters, index) in charactersList" :key="index">
       <img v-if="getGender(index) === 'male'" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTI5TDjHkXbNGlduL7AEVMwGn4bc-QosNt7IRcp9fBJ4qN6N0pmHg" alt="" class="circle">
       <img v-else-if="getGender(index) === 'female'"  alt="" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSNngF0RFPjyGl4ybo78-XYxxeap88Nvsyj1_txm6L4eheH8ZBu" class="circle">
       <img v-else src="https://marketplace.canva.com/MAB6v3AfpmA/1/thumbnail/canva-robot-MAB6v3AfpmA.png" class="circle">
@@ -11,12 +15,14 @@
       <button class="btnDetail" @click="getDetails(characters, index)">View Details</button>
     </li>
   </ul>
+</div>
 </template>
 
 <script>
 export default {
   data() {
     return {
+      search: "",
     }
   },
   props: {
@@ -29,6 +35,13 @@ export default {
     },
     getDetails(character, index) {
       this.$emit("charDetails", character, this.world[index]);
+    }
+  },
+  computed: {
+    charactersList() {
+      return this.characters.filter(characters => {
+        return characters.name.toLowerCase().includes(this.search.toLowerCase())
+      })
     }
   }
 };
